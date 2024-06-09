@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: currency-service
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: currency_service
+    password: superpass
+    url: jdbc:postgresql://localhost:5432/currency-db?useSSL=false
+    hikari:
+      pool-name: currencyCP
+      maximum-pool-size: 10
+
+  flyway:
+    enabled: true
+    user: currency_service_migration_executor
+    password: userthebest098
+    schemas:
+      - public
+    locations: classpath:/db/migration
+
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        generate_statistics: false
+        current_session_context_class: thread
+        connection:
+          isolation: 2
+        jdbc:
+          time_zone: UTC
+          batch_size: 10
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+
+server:
+  port: 8080
+
+currency:
+  currencyExchange:
+    bnbURLen: https://bnb.bg/Statistics/StExternalSector/StExchangeRates/StERForeignCurrencies/index.htm?download=xml&search=&lang=EN
+    bnbURLbg: https://bnb.bg/Statistics/StExternalSector/StExchangeRates/StERForeignCurrencies/index.htm?download=xml&search=&lang=BG

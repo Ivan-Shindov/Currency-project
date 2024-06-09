@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/currency-service/src/main/resources/db/migration/V1.0__initial_db.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/docker/postgres/init/01_create_databases.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/websocket-service/src/main/resources/db/migration/V1.0__initial_db_websocket.sql" dialect="PostgreSQL" />
+  </component>
+</project>
