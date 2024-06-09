@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: websocket-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: websocket_service
+    password: superpass2
+    url: jdbc:postgresql://localhost:5432/websocket-db?useSSL=false
+    hikari:
+      pool-name: websocketCP
+      maximum-pool-size: 10
+
+  flyway:
+    enabled: true
+    user: websocket_service_migration_executor
+    password: superpass2345
+    schemas:
+      - public
+    locations: classpath:/db/migration
+
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        generate_statistics: false
+        current_session_context_class: thread
+        connection:
+          isolation: 2
+        jdbc:
+          time_zone: UTC
+          batch_size: 10
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+
+server:
+  port: 8081

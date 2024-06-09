@@ -1,0 +1,16 @@
+package com.websocket.websocketservice;
+
+import jakarta.annotation.PostConstruct;
+import org.flywaydb.core.Flyway;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WebsocketServiceApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(WebsocketServiceApplication.class, args);
+
+  }
+
+}
